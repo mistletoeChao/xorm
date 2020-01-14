@@ -917,9 +917,9 @@ func (db *postgres) CreateIndexSql(tableName string, index *core.Index) string {
 		unique = " UNIQUE"
 	}
 	idxName = index.XName(tableName)
-	if db.Uri.Schema != "" {
-		idxName = db.Uri.Schema + "." + idxName
-	}
+	//if db.Uri.Schema != "" {
+	//	idxName = db.Uri.Schema + "." + idxName
+	//}
 
 	return fmt.Sprintf("CREATE%s INDEX %v ON %v (%v)", unique,
 		quote(idxName), quote(tableName),
